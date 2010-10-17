@@ -1,0 +1,13 @@
+<classpath>
+  <classpathentry kind="src" path="src/test/java"/>
+  <classpathentry kind="src" path="src/main/java"/>
+  <classpathentry kind="output" path="classes"/>
+  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-library/1.1/hamcrest-library-1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jmock/jmock/2.5.1/jmock-2.5.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jmock/jmock-junit4/2.5.1/jmock-junit4-2.5.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.4/junit-4.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit-dep/4.4/junit-dep-4.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/sjl/util/1.0-SNAPSHOT/util-1.0-SNAPSHOT.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>
