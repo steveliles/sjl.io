@@ -18,7 +18,7 @@ public class ExternalProcessTest  {
 	@Test
 	public void testInvokeWithNoStreamInput() 
 	throws Exception {
-		ExternalProcess.execute("/usr/bin/", "convert", new String[]{ "-version" }, new ExecutionContextImpl() {
+		ExternalProcess.execute("", "convert", new String[]{ "-version" }, new ExecutionContextImpl() {
 			
 			ProcessOutput.AsStringImpl error = new ProcessOutput.AsStringImpl();
 			ProcessOutput.AsStringImpl output = new ProcessOutput.AsStringImpl();
@@ -52,7 +52,7 @@ public class ExternalProcessTest  {
 	@Test
 	public void testCanInvokeMoreComplexProcess() 
 	throws Exception {
-		ExternalProcess.execute("/usr/bin/", "convert", new String[]{ "png:fd:0", "gif:fd:1" }, new ExecutionContextImpl() {
+		ExternalProcess.execute("", "convert", new String[]{ "png:fd:0", "gif:fd:1" }, new ExecutionContextImpl() {
 			
 			ProcessOutput.AsStringImpl error = new ProcessOutput.AsStringImpl();
 			
@@ -63,7 +63,7 @@ public class ExternalProcessTest  {
 
 			@Override
 			public ProcessOutput getOutput() throws IOException {
-				return new ProcessOutput.Prepared(new FileOutputStream(new File("/home/steve/Desktop/test.gif")));					
+				return new ProcessOutput.Prepared(new FileOutputStream(new File("test.gif")));					
 			}
 			
 			@Override
