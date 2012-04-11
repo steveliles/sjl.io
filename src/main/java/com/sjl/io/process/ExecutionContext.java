@@ -39,4 +39,14 @@ public interface ExecutionContext {
 	 */
 	void onAbnormalTermination(int anExitCode)
 	throws Exception;
+	
+	/**
+     * @return the working directory for the process (can use null for current directory)
+     */
+    File getWorkingDirectory();
+    
+    /**
+     * Invoke in a finally block after completion!
+     */
+    public void dispose();
 }

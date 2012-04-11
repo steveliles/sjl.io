@@ -1,13 +1,10 @@
 package com.sjl.io.process;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.atomic.AtomicReference;
+import java.io.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.*;
 
 import com.sjl.io.streams.*;
-import com.sjl.util.strings.*;
 
 
 public class ExternalProcess {
@@ -32,7 +29,12 @@ public class ExternalProcess {
         OutputStream _out = null;
         OutputStream _err = null;
         try {
-            _process = Runtime.getRuntime().exec(aPath + aCmd + " " + Strings.joinWithDelimiter(" ", anArgs));
+        	String _cmd = aPath + aCmd;
+            String[] _cmds = new String[anArgs.length+1];
+            System.arraycopy(anArgs, 0, _cmds, 1, anArgs.length);
+            _cmds[0] = _cmd;
+            
+            _process = Runtime.getRuntime().exec(_cmds, null, aCallback.getWorkingDirectory());
             
             CyclicBarrier _barrier = newCyclicBarrier(
             	aCallback.getInput().isAvailable(),

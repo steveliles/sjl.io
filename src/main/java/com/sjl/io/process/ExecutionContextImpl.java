@@ -1,10 +1,7 @@
 package com.sjl.io.process;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.io.*;
+import java.util.concurrent.*;
 
 import com.sjl.io.streams.*;
 
@@ -13,9 +10,9 @@ import com.sjl.io.streams.*;
  */
 public abstract class ExecutionContextImpl implements ExecutionContext {
 
-	private Executor executor;	
+	private ExecutorService executor;	
 	
-	public ExecutionContextImpl(Executor anExecutor) {
+	public ExecutionContextImpl(ExecutorService anExecutor) {
 		executor = anExecutor;		
 	}
 	public ExecutionContextImpl() { 
@@ -33,5 +30,14 @@ public abstract class ExecutionContextImpl implements ExecutionContext {
 				}
 			}			
 		});
-	}		
+	}
+	
+	public void dispose() {
+        executor.shutdown();
+    }
+	
+	@Override
+	public File getWorkingDirectory() {
+		return null; // means "here" - where the java process is invoked from
+	}
 }
